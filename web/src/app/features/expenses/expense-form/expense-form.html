@@ -1,0 +1,64 @@
+<h2 mat-dialog-title>
+  <mat-icon>{{ isEdit ? 'edit' : 'add_circle' }}</mat-icon>
+  {{ isEdit ? 'Editar gasto' : 'Nuevo gasto' }}
+</h2>
+
+<mat-dialog-content>
+  @if (error) {
+    <div class="error-banner">
+      <mat-icon>error_outline</mat-icon>
+      {{ error }}
+    </div>
+  }
+
+  <div class="form-grid">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Monto</mat-label>
+      <input
+        matInput
+        type="number"
+        [(ngModel)]="form.amount"
+        min="0.01"
+        step="0.01"
+        placeholder="0.00"
+      />
+      <span matTextPrefix>$&nbsp;</span>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Descripción</mat-label>
+      <input matInput [(ngModel)]="form.description" placeholder="Ej. Almuerzo, gasolina..." />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Fecha</mat-label>
+      <input matInput type="date" [(ngModel)]="form.date" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Categoría</mat-label>
+      <mat-select [(ngModel)]="form.category_id">
+        @for (cat of categories; track cat.id) {
+          <mat-option [value]="cat.id">{{ cat.name }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="cancel()" [disabled]="loading">
+    Cancelar
+  </button>
+  <button
+    mat-flat-button
+    (click)="submit()"
+    [disabled]="!isValid() || loading"
+  >
+    @if (loading) {
+      <mat-spinner diameter="18" />
+    } @else {
+      {{ isEdit ? 'Guardar cambios' : 'Crear gasto' }}
+    }
+  </button>
+</mat-dialog-actions>

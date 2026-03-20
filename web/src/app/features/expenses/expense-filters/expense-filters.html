@@ -1,0 +1,55 @@
+<mat-card class="filters-card">
+  <div class="filters-grid">
+
+    <mat-form-field appearance="outline">
+      <mat-label>Categoría</mat-label>
+      <mat-select [(ngModel)]="categoryId">
+        <mat-option [value]="null">Todas</mat-option>
+        @for (cat of categories(); track cat.id) {
+          <mat-option [value]="cat.id">{{ cat.name }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Desde</mat-label>
+      <input matInput type="date" [(ngModel)]="startDate" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Hasta</mat-label>
+      <input matInput type="date" [(ngModel)]="endDate" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Monto mínimo</mat-label>
+      <input matInput type="number" [(ngModel)]="minAmount" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Monto máximo</mat-label>
+      <input matInput type="number" [(ngModel)]="maxAmount" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Ordenar por</mat-label>
+      <mat-select [(ngModel)]="sort">
+        @for (opt of sortOptions; track opt.value) {
+          <mat-option [value]="opt.value">{{ opt.label }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+  </div>
+
+  <div class="filters-actions">
+    <button mat-button (click)="reset()">
+      <mat-icon>clear</mat-icon>
+      Limpiar
+    </button>
+    <button mat-flat-button (click)="apply()">
+      <mat-icon>search</mat-icon>
+      Filtrar
+    </button>
+  </div>
+</mat-card>

@@ -1,0 +1,32 @@
+<mat-sidenav-container class="sidenav-container">
+
+  <mat-sidenav mode="side" opened class="sidenav">
+    <div class="sidenav-header">
+      <mat-icon class="logo-icon">account_balance_wallet</mat-icon>
+      <span class="logo-text">Maja</span>
+    </div>
+
+    <mat-nav-list>
+      @for (item of navItems; track item.route) {
+        <mat-list-item
+          (click)="navigate(item.route)"
+          [class.active-link]="isActive(item.route)"
+        >
+          <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+          <span matListItemTitle>{{ item.label }}</span>
+        </mat-list-item>
+      }
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="main-content">
+    <mat-toolbar class="toolbar">
+      <span class="toolbar-title">Control de Gastos</span>
+    </mat-toolbar>
+
+    <div class="page-container">
+      <router-outlet />
+    </div>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

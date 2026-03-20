@@ -1,0 +1,36 @@
+<h2 mat-dialog-title>
+  <mat-icon>label</mat-icon>
+  Nueva categoría
+</h2>
+
+<mat-dialog-content>
+  @if (error) {
+    <div class="error-banner">
+      <mat-icon>error_outline</mat-icon>
+      {{ error }}
+    </div>
+  }
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Nombre</mat-label>
+    <input
+      matInput
+      [(ngModel)]="name"
+      placeholder="Ej. Comida, Transporte..."
+      (keyup.enter)="submit()"
+    />
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="cancel()" [disabled]="loading">
+    Cancelar
+  </button>
+  <button mat-flat-button (click)="submit()" [disabled]="!isValid() || loading">
+    @if (loading) {
+      <mat-spinner diameter="18" />
+    } @else {
+      Crear categoría
+    }
+  </button>
+</mat-dialog-actions>

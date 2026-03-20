@@ -1,0 +1,23 @@
+.filters-card {
+  border-radius: 12px !important;
+  margin-bottom: 20px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06) !important;
+
+  .filters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+
+    mat-form-field {
+      width: 100%;
+    }
+  }
+
+  .filters-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 4px;
+  }
+}

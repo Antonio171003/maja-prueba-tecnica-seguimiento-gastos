@@ -1,0 +1,41 @@
+h2[mat-dialog-title] {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1a1a2e;
+  padding-top: 8px;
+
+  mat-icon {
+    color: #1976d2;
+  }
+}
+
+.error-banner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #fdecea;
+  color: #c62828;
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  font-size: 0.88rem;
+}
+
+.form-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-top: 8px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+mat-dialog-actions {
+  padding: 12px 0 4px;
+  gap: 8px;
+}
