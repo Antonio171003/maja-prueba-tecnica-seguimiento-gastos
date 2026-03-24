@@ -3,17 +3,17 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'expenses',
+    redirectTo: 'app/expenses',
     pathMatch: 'full'
   },
   {
-    path: 'expenses',
+    path: 'app/expenses',
     loadComponent: () =>
       import('./features/expenses/expense-list/expense-list')
         .then(m => m.ExpenseList)
   },
   {
-    path: 'summary',
+    path: 'app/summary',
     loadComponent: () =>
       import('./features/summary/summary')
         .then(m => m.Summary)

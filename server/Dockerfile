@@ -9,4 +9,4 @@ COPY . .
 
 EXPOSE 5000
 
-CMD flask --app run db upgrade && flask --app run run --host=0.0.0.0
+CMD python -c "from app import create_app; from app.extensions import db; app = create_app(); app.app_context().push(); db.create_all()" && python seed.py && flask --app run run --host=0.0.0.0

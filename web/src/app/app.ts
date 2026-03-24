@@ -24,8 +24,8 @@ export class App {
   router = inject(Router);
 
   navItems = [
-    { label: 'Gastos',  icon: 'receipt_long', route: '/expenses' },
-    { label: 'Resumen', icon: 'bar_chart',     route: '/summary'  },
+    { label: 'Gastos',  icon: 'receipt_long', route: '/app/expenses' },
+    { label: 'Resumen', icon: 'bar_chart',     route: '/app/summary'  },
   ];
 
   navigate(route: string): void {
