@@ -1,8 +1,8 @@
-# Maja Prueba Tecnica — Seguimiento de Gastos
+# Maja — Seguimiento de Gastos
 
 ## Candidato: Luis Antonio Peñuelas López
 
-**Descripción**: Aplicación para el control financiero personal. Se busca evaluar el manejo de datos numéricos y consultas con filtros.
+Aplicación para el control financiero personal. Se busca evaluar el manejo de datos numéricos y consultas con filtros.
 
 ## Stack
 
@@ -27,22 +27,21 @@
 ```bash
 # 1. Clonar el repositorio
 git clone git@github.com:Antonio171003/maja-prueba-tecnica-seguimiento-gastos.git
-cd maja
+cd maja-prueba-tecnica-seguimiento-gastos
 
 # 2. Levantar los servicios
 docker compose up --build
-
-# 3. Cargar datos de ejemplo (opcional, en otra terminal)
-docker compose exec server python seed.py
 ```
 
 La app queda disponible en:
 - **Frontend:** http://localhost:4200
 - **Backend:** http://localhost:5000
 
+> Los datos de ejemplo se cargan automáticamente al iniciar.
+
 ## Desarrollo local (sin Docker)
 
-> Solo necesario si no usas Docker.
+> Solo necesario si no se usa Docker.
 
 **Backend:**
 ```bash
@@ -104,4 +103,3 @@ pytest tests/ -v
 ```
 
 67 tests cubriendo servicios, rutas y casos de error.
-
